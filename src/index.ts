@@ -7,7 +7,7 @@ const port = 3000;
 app.use(routes);
 
 app.listen(port, () => {
-    console.log(`listening to port: ${port}`);
+    console.log(`Running on localhost:${port}`);
 });
 
 export default app;
