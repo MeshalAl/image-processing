@@ -37,6 +37,7 @@ on `200`: returns route message.
 ___
 ### Images parameters:
 uses `localhost:3000/api/images?filename=[string]&width=[number]&height=[number]`
+
 requires: `filename`, `width` and `height`.
 
 on `200`: saves image under `images/output/*.jpg or fetches it if exists, returns an image.
