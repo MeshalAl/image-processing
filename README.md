@@ -21,6 +21,7 @@ to build the project, and run jasmine tests:
 to delete images in output folder (windows):
 
 `npm run clear`
+
 ___
 ## End points:
 
