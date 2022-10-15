@@ -43,7 +43,7 @@ uses `localhost:3000/api/images?filename=[string]&width=[number]&height=[number]
 
 requires: `filename`, `width` and `height`.
 
-on `200`: saves image under `images/output/*.jpg` or fetches it if exists, returns an image.
+on `200`: saves image under `images/output/*.jpg` or fetches it if exists under `images/output/`, returns an image.
 
 on `404`: blocked due to:
 - missing parameter names.
@@ -52,4 +52,9 @@ on `404`: blocked due to:
 - extra parameters other than the requirement.
 
 ### ℹ️ output folder can contain multiple instances of the same image but with different dimensions.
+
+___
+### Test:
+- multiple tests for index, validatiors, image creation.
+- deletion of generated test image after testing.
 
