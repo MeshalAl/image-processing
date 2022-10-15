@@ -20,9 +20,9 @@ const resize = async (req: Request) => {
         const resizedImage = sharpedImage.resize(width, height);
         await resizedImage.toFile(outputPath).then((info) => {
             console.log(
-                `image generated: ${filename}-${width}x${height}.jpg \nat ${outputPath}\n ${JSON.stringify(
+                `image generated: ${filename}-${width}x${height}.jpg \n\nat ${outputPath}\n ${JSON.stringify(
                     info
-                )}`
+                )}\n\n`
             );
         });
 
