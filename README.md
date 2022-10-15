@@ -24,15 +24,18 @@ to delete images in output folder (windows):
 ___
 ## End points:
 
-URL: `localhost:3000`
+Base: `localhost:3000`
 
 ## API:
 uses `localhost:3000/api/`
+
 on `404`: blocked due to `/*`
+
 on `200`: returns route message.
 
 ### Images:
 uses `localhost:3000/api/images`
+
 on `200`: returns route message.
 ___
 ### Images parameters:
@@ -40,7 +43,7 @@ uses `localhost:3000/api/images?filename=[string]&width=[number]&height=[number]
 
 requires: `filename`, `width` and `height`.
 
-on `200`: saves image under `images/output/*.jpg or fetches it if exists, returns an image.
+on `200`: saves image under `images/output/*.jpg` or fetches it if exists, returns an image.
 
 on `404`: blocked due to:
 - missing parameter names.
@@ -48,5 +51,5 @@ on `404`: blocked due to:
 - non-nummerical characters on `width` or `height`.
 - extra parameters other than the requirement.
 
-| :info:        | output folder can contain multiple instances of the same image but with different dimensions.     |
-|---------------|:------------------------|
+### ℹ️ output folder can contain multiple instances of the same image but with different dimensions.
+
