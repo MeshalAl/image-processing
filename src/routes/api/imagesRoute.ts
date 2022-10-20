@@ -1,4 +1,4 @@
-import { Router, Request, Response } from 'express';
+import { Router, Request, Response, NextFunction } from 'express';
 import {
     validateParameters,
     validateImageExists,
@@ -11,16 +11,17 @@ routes.get(
     '/',
     validateParameters,
     validateImageExists,
-    async (req: Request, res: Response) => {
+    async (req: Request, res: Response, next: NextFunction) => {
         const filename = req.query.filename as string;
         const width = parseInt(req.query.width as string);
         const height = parseInt(req.query.height as string);
 
-        const resizedPath = await resize(filename, width, height);
         try {
+            const resizedPath = await resize(filename, width, height);
             res.status(200).sendFile(resizedPath);
-        } catch (error) {
-            console.log('failed locating the resized image');
+        } catch (err) {
+            console.log(`failed locating the resized image\n${err}`);
+            next();
         }
     }
 );
