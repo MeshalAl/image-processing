@@ -1,5 +1,4 @@
 import sharp from 'sharp';
-import { Request } from 'express';
 import path from 'path';
 import { imagePath } from '../data_paths/imagePaths';
 
@@ -31,7 +30,7 @@ const resize = async (
         });
 
         return outputPath;
-    } catch (error) {
+    } catch (e: unknown) {
         throw new Error('Resizing failed');
     }
 };

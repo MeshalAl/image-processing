@@ -30,7 +30,7 @@ describe('Validator tests:', () => {
             expect(response.status).toBe(404);
         });
         it('Expect 404 on missing filename', async () => {
-            const response = await request.get(`/api/imagesfilename=`);
+            const response = await request.get(`/api/images?filename=`);
             expect(response.status).toBe(404);
         });
         it('Expect 404 on non-integer dimensions', async () => {
@@ -41,7 +41,7 @@ describe('Validator tests:', () => {
         });
         it('Expect 404 on missing params', async () => {
             const response = await request.get(
-                `/api/imagesfilename=${validParams.filename}`
+                `/api/images?filename=${validParams.filename}`
             );
             expect(response.status).toBe(404);
         });

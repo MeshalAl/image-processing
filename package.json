@@ -31,7 +31,7 @@
   },
   "scripts": {
     "build": "npx tsc",
-    "test": "npm run build && npm run jasmine",
+    "test": "npm run clear-output && npm run build && npm run jasmine",
     "dev": "ts-node src/.",
     "start": "nodemon src/index.ts",
     "lint": "eslint src/*.ts",
