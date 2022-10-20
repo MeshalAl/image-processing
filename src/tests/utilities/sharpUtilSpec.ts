@@ -2,13 +2,14 @@ import supertest from 'supertest';
 import app from '../..';
 import fs from 'fs';
 import path from 'path';
+import resize from '../../utilities/sharpUtil';
 
 const request = supertest(app);
 
 const validParams = {
     filename: '1',
-    width: '500',
-    height: '250',
+    width: 500,
+    height: 250,
 };
 const testImagePath = path.join(
     __dirname,
@@ -25,10 +26,22 @@ describe('sharpUtil tests:', () => {
             }
         });
     });
-    it('Expect generation of image.', async () => {
+    
+    it('Expect generation of image via end point.', async () => {
         await request.get(
             `/api/images?filename=${validParams.filename}&width=${validParams.width}&height=${validParams.height}`
         );
+        expect(fs.existsSync(testImagePath)).toBeTrue();
+    });
+    it('Expect generation of image via sharp', async () => {
+
+        expect(async () => {
+            await resize(
+                validParams.filename,
+                validParams.width,
+                validParams.height
+            );
+        }).not.toThrow();
         expect(fs.existsSync(testImagePath)).toBeTrue();
     });
 });

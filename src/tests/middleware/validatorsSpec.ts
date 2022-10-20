@@ -3,8 +3,8 @@ import app from '../../.';
 
 const validParams = {
     filename: '1',
-    width: '500',
-    height: '250',
+    width: 500,
+    height: 250,
 };
 const invalidParams = {
     filename: 'x',
@@ -46,7 +46,7 @@ describe('Validator tests:', () => {
             expect(response.status).toBe(404);
         });
     });
-    describe('Image tests:', () => {
+    describe('Image validation:', () => {
         it('Expect 404 on non-existing image', async () => {
             const response = await request.get(
                 `/api/images?filename=${invalidParams.filename}&width=${validParams.width}&height=${validParams.height}`
